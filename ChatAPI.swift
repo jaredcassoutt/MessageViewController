@@ -22,12 +22,19 @@ struct ChatAPI {
                     print(error ?? "error")
                     return
                 }
-                if let safeData = data {
-                    
+                if let safeData = data { 
                     let jsonString = String(data: safeData, encoding: String.Encoding.utf8)
                     let parsed = jsonString!.replacingOccurrences(of: ", NaN", with: "")
                     let jsonData = Data(parsed.utf8)
                     print(jsonData)
+                    /*
+                    {
+                        "messages": [
+                            {"user": "jaredcassoutt", "content": "hello, this is a test message", "datetime": "2021-07-10T08:18:44.921Z"}, 
+                            {"user": "otheruser", "content": "hello, this is another test message", "datetime": "2021-08-10T08:19:49.921Z"}
+                        ]
+                    }
+                    */
                     let decoder = JSONDecoder()
                     do {
                         let decodedData = try decoder.decode(ChatInformation.self, from: jsonData)
@@ -49,7 +56,7 @@ struct ChatAPI {
     
     static func sendMessage(username: String, message: String, success: @escaping(_ data:SentMessageStatus)->(),failure:@escaping (String)->()) {
         print("usernamee: \(username)")
-        let url = URL(string: "http://www.chatURL.com/sendMessageAPI/")
+        let url = URL(string: "http://www.chatURL.com/sendingChatAPI/")
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
