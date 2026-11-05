@@ -83,7 +83,7 @@ struct ChatAPI {
                         }
                     }
                     else {
-                        failure("Username could not be found. Try loging out and loging back in.")
+                        failure("Username could not be found. Try logging out and logging back in.")
                     }
                 }
                 catch {
