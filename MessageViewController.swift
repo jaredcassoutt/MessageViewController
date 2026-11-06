@@ -102,7 +102,7 @@ class MessageViewController: UIViewController, LoadingViewProtocol {
             self.stopLoading()
             self.refreshControl.endRefreshing()
         } failure: { error in
-            Displays().displayAlert(title: "Cannot Fetch Messages", message: "There was a problem loading the messages. Please check your connetion and try again later!")
+            Displays().displayAlert(title: "Cannot Fetch Messages", message: "There was a problem loading the messages. Please check your connection and try again later!")
         }
 
     }
